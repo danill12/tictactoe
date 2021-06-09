@@ -23,7 +23,6 @@ class Juego:
         self.turno = 0
 
     def juega(self):
-        self.tablero.dibuja()
         while self.turno < self.DURACION:
             self.EjecutarTurno()
 
@@ -40,9 +39,7 @@ class Juego:
             jugada = jugador.elige(jugadasLibres)
 
         self.tablero.introducirJugada(jugador, jugada)
-        print("El tablero actual: \n")
-        for fila in self.tablero.jugadas:
-            print(fila)
+        self.tablero.dibuja()
 
         self.comprobarResutado(jugador)
 

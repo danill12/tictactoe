@@ -11,16 +11,23 @@ class Tablero:
             [0, 0, 0],
             [0, 0, 0]
         ]
+        self.muestra = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]
 
     def dibuja(self):
-        # print(f"-- {{{ self.jugadas }}} ")
-        pass
+        print("El tablero actual: \n")
+        for fila in self.muestra:
+            print(fila)
 
     def jugadasLibres(self):
         return [j for i in self.jugadas for j in i]
 
     def introducirJugada(self, jugador, jugada):
         self.jugadas[self.ubicarFila(jugada)][self.ubicarColumna(jugada)] = jugador.marca
+        self.muestra[self.ubicarFila(jugada)][self.ubicarColumna(jugada)] = jugador.token
 
     def ubicarFila(self, jugada):
         if jugada <= 3:

@@ -46,6 +46,29 @@ class Juego:
         self.comprobarResutado(jugador)
 
     def comprobarResutado(self, jugador):
+        lineasGanadoras = [
+            [(0, 0), (0, 1), (0, 2)],
+            [(1, 0), (1, 1), (1, 2)],
+            [(2, 0), (2, 1), (2, 2)],
+            [(0, 0), (1, 1), (2, 2)],
+            [(0, 2), (1, 1), (2, 0)],
+            [(0, 0), (1, 0), (2, 0)],
+            [(0, 1), (1, 1), (2, 1)],
+            [(0, 2), (1, 2), (2, 2)],
+        ]
+
+        for lineasGanadora in lineasGanadoras:
+            suma = 0
+            for tupla in lineasGanadora:
+                casilla = self.tablero.jugadas[tupla[0]][tupla[1]]
+                suma += casilla
+                if suma in self.SUMA:
+                    print("Ha ganado ", jugador.token)
+                    exit()
+
+
+"""
+    def comprobarResutadoOld(self, jugador):
         if sum(self.tablero.jugadas[0]) in self.SUMA:
             print("Ha ganado ", jugador.token)
             exit()
@@ -70,3 +93,4 @@ class Juego:
         elif self.tablero.jugadas[0][2] + self.tablero.jugadas[1][2] + self.tablero.jugadas[2][2] in self.SUMA:
             print("Ha ganado ", jugador.token)
             exit()
+"""

@@ -23,8 +23,10 @@ class Juego:
         self.turno = 0
 
     def juega(self):
+        self.tablero.dibuja()
         while self.turno < self.DURACION:
             self.EjecutarTurno()
+        print("Han empatado")
 
     def EjecutarTurno(self):
         jugador = self.jugadores[self.turno % 2]

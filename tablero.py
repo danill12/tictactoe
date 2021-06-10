@@ -1,3 +1,6 @@
+from os import system
+
+
 class Tablero:
 
     OPCIONES = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -12,15 +15,21 @@ class Tablero:
             [0, 0, 0]
         ]
         self.muestra = [
-            [0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0]
+            [" ", " ", " "],
+            [" ", " ", " "],
+            [" ", " ", " "]
         ]
 
     def dibuja(self):
+        system("cls")
         print("El tablero actual: \n")
-        for fila in self.muestra:
-            print(fila)
+        print(f"""
+        {self.muestra[0][0]} | {self.muestra[0][1]} | {self.muestra[0][2]}
+        ----------
+        {self.muestra[1][0]} | {self.muestra[1][1]} | {self.muestra[1][2]}
+        ----------
+        {self.muestra[2][0]} | {self.muestra[2][1]} | {self.muestra[2][2]}
+        \n""")
 
     def jugadasLibres(self):
         return [j for i in self.jugadas for j in i]

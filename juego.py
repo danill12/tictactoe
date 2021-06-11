@@ -68,5 +68,5 @@ class Juego:
                 casilla = self.tablero.jugadas[tupla[0]][tupla[1]]
                 suma += casilla
                 if suma in self.SUMA:
-                    print(msg["victoria"])  # jugador.token
+                    print(msg["victoria"].format(**{"jugador": jugador.token}))
                     exit()

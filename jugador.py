@@ -13,7 +13,7 @@ class Jugador:
         excep = None
         while excep is None:
             try:
-                jugada = (input(msg["entrada"]))  # self.token
+                jugada = (input(msg["entrada"]))
                 excep = int(jugada)
             except ValueError:
                 print(msg["errorFormato"])
@@ -22,4 +22,4 @@ class Jugador:
         return excep
 
     def imprimeTurno(self):
-        print(msg["turno"])  # self.token
+        print(msg["turno"].format(**{"token": self.token}))

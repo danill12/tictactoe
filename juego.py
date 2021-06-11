@@ -1,5 +1,7 @@
 from tablero import Tablero
 from jugador import Jugador
+from mensajesES import msg
+from os import system
 
 
 class Juego:
@@ -23,10 +25,13 @@ class Juego:
         self.turno = 0
 
     def juega(self):
+        system("cls")
+        print(msg["inicio"])
+        system("Pause")
         self.tablero.dibuja()
         while self.turno < self.DURACION:
             self.EjecutarTurno()
-        print("Han empatado")
+        print(msg["empate"])
 
     def EjecutarTurno(self):
         jugador = self.jugadores[self.turno % 2]
@@ -37,7 +42,7 @@ class Juego:
         jugada = jugador.elige(jugadasLibres)
 
         while self.tablero.comprobarCasillaOcupada(jugada):
-            print("ERROR, Intenta de nuevo")
+            print(msg["errorCasilla"])
             jugada = jugador.elige(jugadasLibres)
 
         self.tablero.introducirJugada(jugador, jugada)
@@ -63,34 +68,5 @@ class Juego:
                 casilla = self.tablero.jugadas[tupla[0]][tupla[1]]
                 suma += casilla
                 if suma in self.SUMA:
-                    print("Ha ganado ", jugador.token)
+                    print(msg["victoria"])  # jugador.token
                     exit()
-
-
-"""
-    def comprobarResutadoOld(self, jugador):
-        if sum(self.tablero.jugadas[0]) in self.SUMA:
-            print("Ha ganado ", jugador.token)
-            exit()
-        elif sum(self.tablero.jugadas[1]) in self.SUMA:
-            print("Ha ganado ", jugador.token)
-            exit()
-        elif sum(self.tablero.jugadas[2]) in self.SUMA:
-            print("Ha ganado ", jugador.token)
-            exit()
-        elif self.tablero.jugadas[0][0] + self.tablero.jugadas[1][1] + self.tablero.jugadas[2][2] in self.SUMA:
-            print("Ha ganado ", jugador.token)
-            exit()
-        elif self.tablero.jugadas[0][2] + self.tablero.jugadas[1][1] + self.tablero.jugadas[2][0] in self.SUMA:
-            print("Ha ganado ", jugador.token)
-            exit()
-        elif self.tablero.jugadas[0][0] + self.tablero.jugadas[1][0] + self.tablero.jugadas[2][0] in self.SUMA:
-            print("Ha ganado ", jugador.token)
-            exit()
-        elif self.tablero.jugadas[0][1] + self.tablero.jugadas[1][1] + self.tablero.jugadas[2][1] in self.SUMA:
-            print("Ha ganado ", jugador.token)
-            exit()
-        elif self.tablero.jugadas[0][2] + self.tablero.jugadas[1][2] + self.tablero.jugadas[2][2] in self.SUMA:
-            print("Ha ganado ", jugador.token)
-            exit()
-"""

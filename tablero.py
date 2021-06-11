@@ -1,4 +1,5 @@
 from os import system
+from mensajesES import msg
 
 
 class Tablero:
@@ -22,7 +23,7 @@ class Tablero:
 
     def dibuja(self):
         system("cls")
-        print("El tablero actual: \n")
+        print(msg["tablero"])
         print(f"""
         {self.muestra[0][0]} | {self.muestra[0][1]} | {self.muestra[0][2]}
         ----------
@@ -35,8 +36,10 @@ class Tablero:
         return [j for i in self.jugadas for j in i]
 
     def introducirJugada(self, jugador, jugada):
-        self.jugadas[self.ubicarFila(jugada)][self.ubicarColumna(jugada)] = jugador.marca
-        self.muestra[self.ubicarFila(jugada)][self.ubicarColumna(jugada)] = jugador.token
+        fila = self.ubicarFila(jugada)
+        columna = self.ubicarColumna(jugada)
+        self.jugadas[fila][columna] = jugador.marca
+        self.muestra[fila][columna] = jugador.token
 
     def ubicarFila(self, jugada):
         if jugada <= 3:

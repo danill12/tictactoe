@@ -8,7 +8,7 @@ Diviertanse!!!",
     "victoria": "Enhorabuena!!!!, has ganado jugador {jugador}",
     "empate": "Bien jugado, han empatado",
     "errorFormato": "El formato de la jugada que ha introducido no es valido, \
-intenta de nuevo",
+intentalo de nuevo",
     "errorCasilla": "ERROR, la casilla no existe o esta ocupada, \
-intenta de nuevo",
+intentalo de nuevo",
 }

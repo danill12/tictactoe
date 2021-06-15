@@ -1,6 +1,7 @@
 msg = {
     "inicio": "Bienvenido al Tres en Raya\n\
-Para jugar elija una posicion del teblero utilizando los numeros del 1 al 9.\n\
+Para jugar elija una posicion del teblero utilizando los numeros del 1 al 9 \n\
+(Siendo el 1 la posicion superior izquierda).\n\
 Diviertanse!!!",
     "entrada": "Introduzca su jugada: ",
     "turno": "Le toca al jugador {token}",
